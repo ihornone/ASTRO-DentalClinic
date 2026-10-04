@@ -1,0 +1,51 @@
+---
+---
+
+<section class="section-gap bg-white">
+  <div class="section-container">
+    <div data-animate class="anim-fade-up">
+      <h2 class="heading-lg text-center mb-12">Часті запитання</h2>
+    </div>
+    <div class="max-w-3xl mx-auto space-y-4" data-stagger>
+      {[
+        { q: 'Як часто потрібно відвідувати стоматолога?', a: "Рекомендуємо проходити профілактичний огляд кожні 6 місяців для підтримки здоров'я ротової порожнини та своєчасного виявлення проблем." },
+        { q: 'Чи приймаєте ви страховку?', a: "Так, ми працюємо з більшістю основних страхових планів. Зв'яжіться з нами для перевірки вашого покриття." },
+        { q: 'Скільки триває процедура відбілювання зубів?', a: 'Професійне відбілювання зазвичай займає 60-90 хвилин з миттєвим результатом.' },
+        { q: 'Чи болісно встановлювати зубні імпланти?', a: 'Процедура проводиться під місцевою анестезією, тому ви не відчуватимете болю. Незначний дискомфорт після процедури є нормою.' },
+        { q: 'Які варіанти оплати ви пропонуєте?', a: 'Ми пропонуємо гнучкі плани оплати, включаючи розстрочку під 0%, щоб зробити лікування доступним для кожного.' },
+      ].map((faq, i) => (
+        <div class="anim-fade-up stagger-item" data-animate>
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <button class="faq-toggle w-full flex items-center justify-between p-6 text-left" data-index={i}>
+              <span class="font-semibold text-on-surface pr-4">{faq.q}</span>
+              <svg class="faq-chevron w-5 h-5 text-primary flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6">
+              <p class="body-md">{faq.a}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const answer = btn.parentElement!.querySelector('.faq-answer') as HTMLElement;
+      const chevron = btn.querySelector('.faq-chevron') as HTMLElement;
+      const isOpen = !answer.classList.contains('hidden');
+
+      document.querySelectorAll('.faq-answer').forEach((a) => a.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach((c) => c.classList.remove('rotate-180'));
+
+      if (!isOpen) {
+        answer.classList.remove('hidden');
+        chevron.classList.add('rotate-180');
+      }
+    });
+  });
+</script>

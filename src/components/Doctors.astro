@@ -1,0 +1,42 @@
+---
+import Animate from './Animate.astro';
+---
+
+<section id="doctors" class="relative">
+  <div class="relative z-10 -mt-20">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0,80 L1440,80 L1440,40 C1260,60 1080,20 720,40 C360,60 180,30 0,40 Z" fill="#f5dde0"/>
+      <path d="M0,40 C180,30 360,60 720,40 C1080,20 1260,60 1440,40 L1440,0 L0,0 Z" fill="white"/>
+    </svg>
+  </div>
+  <div class="bg-[#f5dde0]">
+    <div class="section-container pt-10 pb-8 md:pt-10 md:pb-8">
+      <Animate>
+        <h2 class="heading-lg text-center mb-16">Наші лікарі</h2>
+      </Animate>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" data-stagger>
+        {[
+          { name: 'Доктор Олена Коваленко', spec: 'Стоматолог-терапевт', img: '/doc-1.jpg' },
+          { name: 'Доктор Ірина Мельник', spec: 'Хірург-імплантолог', img: '/doc-2.jpg' },
+          { name: 'Доктор Анна Бондаренко', spec: 'Ортодонт', img: '/doc-3.jpg' },
+        ].map((doc) => (
+          <Animate stagger>
+            <div class="bg-white overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-all">
+              <img src={doc.img} alt={doc.name} class="w-full aspect-square object-cover" />
+              <div class="p-6">
+                <h3 class="heading-md">{doc.name}</h3>
+                <span class="inline-block mt-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">{doc.spec}</span>
+              </div>
+            </div>
+          </Animate>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="relative z-10 -mb-20">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,40 C1260,20 1080,60 720,40 C360,20 180,50 0,40 Z" fill="#f5dde0"/>
+      <path d="M0,40 C180,50 360,20 720,40 C1080,60 1260,20 1440,40 L1440,80 L0,80 Z" fill="white"/>
+    </svg>
+  </div>
+</section>

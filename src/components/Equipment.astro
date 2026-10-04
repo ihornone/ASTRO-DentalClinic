@@ -1,0 +1,48 @@
+---
+import Animate from './Animate.astro';
+
+const items = [
+  { title: '3D-сканер Primescan', desc: 'Точне 3D-моделювання зубів за кілька хвилин. Створює цифровий відбиток без дискомфорту.', img: '/tools-1.jpg' },
+  { title: 'Внутрішньоротова HD камера Bonida', desc: 'Детальний огляд ротової порожнини на екрані в реальному часі.', img: '/tools-2.jpg' },
+  { title: 'Стоматологічний лазер Litetouch', desc: 'Безболісне лікування м\'яких та твердих тканин, швидке загоєння.', img: '/tools-3.jpg' },
+  { title: 'Цифрова рентген-система ORIX', desc: 'Мінімальне опромінення, максимум деталей. Мобільна установка.', img: '/tools-4.jpg' },
+];
+---
+
+<section class="section-gap bg-white">
+  <div class="section-container">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16">
+      <div class="md:sticky md:top-28 md:self-start">
+        <Animate direction="left">
+          <div>
+            <h2 class="heading-lg mb-6">Наше обладнання</h2>
+            <p class="body-lg mb-6">Ми постійно оновлюємо нашу техніку, щоб пацієнти отримували найкраще лікування. Новітнє обладнання дозволяє проводити процедури швидко, точно та безболісно.</p>
+            <ul class="space-y-3">
+              {['Технології останнього покоління', 'Сертифіковане обладнання', 'Регулярне оновлення', 'Цифрова діагностика'].map((item) => (
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
+                  <span class="text-on-surface">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Animate>
+      </div>
+      <div class="space-y-6" data-stagger>
+        {items.map((item) => (
+          <Animate stagger>
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg group">
+              <div class="overflow-hidden">
+                <img src={item.img} alt={item.title} class="w-full aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div class="p-6">
+                <h3 class="heading-md mb-1">{item.title}</h3>
+                <p class="text-on-surface-variant text-sm">{item.desc}</p>
+              </div>
+            </div>
+          </Animate>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

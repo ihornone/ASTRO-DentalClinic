@@ -1,0 +1,53 @@
+---
+import Animate from './Animate.astro';
+
+const reviews = [
+  { name: 'Анна М.', rating: 5, text: 'Чудовий досвід! Персонал надзвичайно професійний, а результат відбілювання перевершив усі очікування.' },
+  { name: 'Давид К.', rating: 5, text: 'Лікар Чень зробив неймовірну роботу з моїми елайнерами. Весь процес був комфортним.' },
+  { name: 'Марія С.', rating: 5, text: 'Найкраща стоматологічна клініка, яку я відвідувала. Обладнання найвищого рівня, лікарі дуже уважні.' },
+  { name: 'Олексій П.', rating: 5, text: 'Робив імпланти — результат неймовірний. Дякую команді за професіоналізм та турботу.' },
+  { name: 'Ірина В.', rating: 5, text: 'Дитина не боялась лікаря! Дуже дякую за чуйний підхід до маленьких пацієнтів.' },
+  { name: 'Тарас Б.', rating: 5, text: 'Швидко, якісно та безболісно. Рекомендую цю клініку всім своїм знайомим.' },
+];
+---
+
+<section id="reviews" class="relative">
+  <div class="relative z-10 -mt-20">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0,80 L1440,80 L1440,40 C1260,60 1080,20 720,40 C360,60 180,30 0,40 Z" fill="#f5eee0"/>
+      <path d="M0,40 C180,30 360,60 720,40 C1080,20 1260,60 1440,40 L1440,0 L0,0 Z" fill="white"/>
+    </svg>
+  </div>
+  <div class="bg-[#f5eee0]">
+    <div class="section-container pt-10 pb-8 md:pt-10 md:pb-8">
+      <Animate>
+        <h2 class="heading-lg mb-4">Відгуки наших пацієнтів</h2>
+      </Animate>
+    </div>
+    <div class="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pl-6 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pr-6 pb-4" style="scrollbar-width: none">
+      {reviews.map((review, i) => (
+        <Animate delay={i * 0.1}>
+          <div class="snap-center flex-shrink-0 w-[340px] bg-white p-8 rounded-3xl shadow-lg">
+            <div class="flex gap-1 mb-4">
+              {[...Array(review.rating)].map(() => (
+                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              ))}
+            </div>
+            <p class="body-md mb-6">"{review.text}"</p>
+            <div class="flex items-center gap-3">
+              <img src={`https://i.pravatar.cc/48?img=${i+20}`} alt={review.name} class="w-12 h-12 rounded-full" />
+              <p class="font-semibold text-on-surface">{review.name}</p>
+            </div>
+          </div>
+        </Animate>
+      ))}
+      <div class="flex-shrink-0 w-6"></div>
+    </div>
+  </div>
+  <div class="relative z-10 -mb-20">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,40 C1260,20 1080,60 720,40 C360,20 180,50 0,40 Z" fill="#f5eee0"/>
+      <path d="M0,40 C180,50 360,20 720,40 C1080,60 1260,20 1440,40 L1440,80 L0,80 Z" fill="white"/>
+    </svg>
+  </div>
+</section>

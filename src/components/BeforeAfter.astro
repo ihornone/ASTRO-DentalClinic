@@ -1,0 +1,114 @@
+---
+import Animate from './Animate.astro';
+
+const cases = [
+  { before: '/1-do.jpg', after: '/1-pislya.jpeg', title: 'Відбілювання зубів' },
+  { before: '/2-do.jpeg', after: '/2-pislya.jpeg', title: 'Встановлення коронки' },
+  { before: '/3-do.jpeg', after: '/3-pislya.jpeg', title: 'Ортодонтія' },
+];
+---
+
+<section class="section-gap bg-white">
+  <div class="section-container">
+    <Animate>
+      <h2 class="heading-lg text-center mb-12">Результати наших робіт</h2>
+    </Animate>
+    <div class="max-w-4xl mx-auto">
+      <div class="anim-scale-in" data-animate>
+        <div
+          id="ba-slider"
+          class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden cursor-ew-resize select-none shadow-xl"
+        >
+          <img id="ba-after" src={cases[0].after} alt="Після" class="absolute inset-0 w-full h-full object-cover" />
+          <div id="ba-before-wrap" class="absolute inset-0 overflow-hidden" style="width: 50%">
+            <img id="ba-before" src={cases[0].before} alt="До" class="absolute inset-0 w-full h-full object-cover" style="width: 1000px; max-width: none" />
+          </div>
+          <div id="ba-handle" class="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_8px_rgba(0,0,0,0.3)] cursor-ew-resize z-10" style="left: 50%; transform: translateX(-50%)">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+              </svg>
+            </div>
+          </div>
+          <span class="absolute top-4 left-4 bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold z-10">До</span>
+          <span class="absolute top-4 right-4 bg-primary text-white px-4 py-1.5 rounded-full text-sm font-semibold z-10">Після</span>
+        </div>
+      </div>
+      <Animate delay={0.2}>
+        <div class="mt-6 flex flex-col items-center gap-4">
+          <h3 id="ba-title" class="heading-md text-on-surface">{cases[0].title}</h3>
+          <div class="flex items-center gap-4">
+            <button id="ba-prev" class="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <div id="ba-dots" class="flex gap-3">
+              {cases.map((_, i) => (
+                <button data-dot={i} class:list={['h-3 rounded-full transition-all', i === 0 ? 'bg-primary w-8' : 'bg-outline-variant/40 w-3']} />
+              ))}
+            </div>
+            <button id="ba-next" class="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+        </div>
+      </Animate>
+    </div>
+  </div>
+</section>
+
+<script>
+  const cases = [
+    { before: '/1-do.jpg', after: '/1-pislya.jpeg', title: 'Відбілювання зубів' },
+    { before: '/2-do.jpeg', after: '/2-pislya.jpeg', title: 'Встановлення коронки' },
+    { before: '/3-do.jpeg', after: '/3-pislya.jpeg', title: 'Ортодонтія' },
+  ];
+
+  let idx = 0;
+  let pos = 50;
+  const slider = document.getElementById('ba-slider')!;
+  const beforeWrap = document.getElementById('ba-before-wrap')!;
+  const beforeImg = document.getElementById('ba-before') as HTMLImageElement;
+  const afterImg = document.getElementById('ba-after') as HTMLImageElement;
+  const handle = document.getElementById('ba-handle')!;
+  const title = document.getElementById('ba-title')!;
+  const dots = document.querySelectorAll('[data-dot]');
+  let dragging = false;
+
+  function updateUI() {
+    beforeWrap.style.width = pos + '%';
+    handle.style.left = pos + '%';
+    title.textContent = cases[idx].title;
+    dots.forEach((d, i) => {
+      d.className = i === idx
+        ? 'h-3 rounded-full transition-all bg-primary w-8'
+        : 'h-3 rounded-full transition-all bg-outline-variant/40 w-3';
+    });
+  }
+
+  function move(clientX: number) {
+    const rect = slider.getBoundingClientRect();
+    pos = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+    updateUI();
+  }
+
+  slider.addEventListener('mousedown', () => { dragging = true; });
+  slider.addEventListener('mousemove', (e: MouseEvent) => { if (dragging) move(e.clientX); });
+  slider.addEventListener('mouseup', () => { dragging = false; });
+  slider.addEventListener('touchmove', (e: TouchEvent) => { move(e.touches[0].clientX); });
+  window.addEventListener('mouseup', () => { dragging = false; });
+  window.addEventListener('touchend', () => { dragging = false; });
+
+  function goTo(i: number) {
+    idx = i;
+    pos = 50;
+    beforeImg.src = cases[idx].before;
+    afterImg.src = cases[idx].after;
+    updateUI();
+  }
+
+  document.getElementById('ba-prev')!.addEventListener('click', () => goTo(idx === 0 ? cases.length - 1 : idx - 1));
+  document.getElementById('ba-next')!.addEventListener('click', () => goTo(idx === cases.length - 1 ? 0 : idx + 1));
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => goTo(Number(dot.getAttribute('data-dot'))));
+  });
+</script>

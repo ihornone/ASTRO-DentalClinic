@@ -1,0 +1,33 @@
+---
+import Animate from './Animate.astro';
+---
+
+<section class="relative pt-28 pb-12 md:pt-40 md:pb-24 bg-white overflow-hidden">
+  <div class="hidden md:block absolute top-0 right-0 text-[20rem] leading-none opacity-10 pointer-events-none z-0">🦷</div>
+  <div class="section-container relative z-10">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+      <div class="relative order-2 md:order-1">
+        <Animate>
+          <h1 class="text-[2.5rem] md:text-headline-xl leading-[1.05] font-bold mb-5">
+            Твоя ідеальна<br class="hidden md:block" /> посмішка{' '}
+            <span class="text-primary">починається тут</span>
+          </h1>
+        </Animate>
+        <Animate delay={0.15}>
+          <p class="text-base md:text-body-lg mb-6 md:mb-8 max-w-md text-on-surface-variant">Стоматологічна допомога світового рівня від нашої команди досвідчених спеціалістів. Сучасні технології, комфортна атмосфера та індивідуальний підхід.</p>
+        </Animate>
+        <Animate delay={0.3}>
+          <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+            <a href="#contact" class="btn-primary text-sm md:text-base text-center">Записатись на прийом</a>
+            <a href="#about" class="btn-secondary text-sm md:text-base text-center">Дізнатись більше</a>
+          </div>
+        </Animate>
+      </div>
+      <div class="relative flex justify-center md:justify-end order-1 md:order-2 -mx-6 md:mx-0">
+        <Animate direction="right">
+          <img src="/img-hero.png" alt="Щасливий пацієнт з ідеальною посмішкою" class="relative w-[280px] sm:w-[380px] md:w-full md:max-w-[580px] object-contain" />
+        </Animate>
+      </div>
+    </div>
+  </div>
+</section>

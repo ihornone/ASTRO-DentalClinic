@@ -1,0 +1,66 @@
+---
+---
+
+<header id="site-header" class="fixed left-3 right-3 md:right-5 md:left-5 bg-white/90 backdrop-blur-md z-50 rounded-[2rem] transition-all duration-300 top-3 md:top-5">
+  <div class="max-w-5xl mx-auto flex items-center justify-between h-20 px-6">
+    <a href="#" class="text-2xl font-bold text-primary">DentalPro</a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#services" class="text-on-surface-variant hover:text-primary transition-colors font-medium">Послуги</a>
+      <a href="#about" class="text-on-surface-variant hover:text-primary transition-colors font-medium">Про нас</a>
+      <a href="#doctors" class="text-on-surface-variant hover:text-primary transition-colors font-medium">Лікарі</a>
+      <a href="#reviews" class="text-on-surface-variant hover:text-primary transition-colors font-medium">Відгуки</a>
+      <a href="#contact" class="text-on-surface-variant hover:text-primary transition-colors font-medium">Контакти</a>
+    </nav>
+    <a href="#contact" class="btn-primary hidden md:inline-flex">Записатись</a>
+    <button id="mobile-menu-btn" class="md:hidden p-2">
+      <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden bg-surface px-6 py-4">
+    <nav class="flex flex-col gap-4">
+      <a href="#services" class="mobile-link text-on-surface-variant hover:text-primary transition-colors font-medium">Послуги</a>
+      <a href="#about" class="mobile-link text-on-surface-variant hover:text-primary transition-colors font-medium">Про нас</a>
+      <a href="#doctors" class="mobile-link text-on-surface-variant hover:text-primary transition-colors font-medium">Лікарі</a>
+      <a href="#reviews" class="mobile-link text-on-surface-variant hover:text-primary transition-colors font-medium">Відгуки</a>
+      <a href="#contact" class="mobile-link btn-primary text-center">Записатись</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header')!;
+  const btn = document.getElementById('mobile-menu-btn')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const iconMenu = document.getElementById('icon-menu')!;
+  const iconClose = document.getElementById('icon-close')!;
+  let open = false;
+
+  btn.addEventListener('click', () => {
+    open = !open;
+    menu.classList.toggle('hidden', !open);
+    iconMenu.classList.toggle('hidden', open);
+    iconClose.classList.toggle('hidden', !open);
+  });
+
+  document.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      open = false;
+      menu.classList.add('hidden');
+      iconMenu.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 50;
+    header.classList.toggle('top-0', scrolled);
+    header.classList.toggle('md:top-0', scrolled);
+    header.classList.toggle('top-3', !scrolled);
+    header.classList.toggle('md:top-5', !scrolled);
+  });
+</script>

@@ -1,0 +1,33 @@
+---
+import Animate from './Animate.astro';
+
+const cards = [
+  { title: 'Сучасне\nобладнання', desc: 'Технології останнього покоління для безболісного та точного лікування.', bg: 'bg-primary-light', icon: '🦷', size: 'text-[1.6rem] md:text-[2rem]' },
+  { title: 'Досвідчені\nлікарі', desc: 'Сертифіковані спеціалісти з багаторічним досвідом роботи.', bg: 'bg-secondary-light', icon: '👨‍⚕️', size: 'text-[1.6rem] md:text-[2rem]' },
+  { title: 'Доступні\nціни', desc: 'Якісне лікування за вашим бюджетом.', bg: 'bg-surface-container', icon: '💰', size: 'text-xl md:text-2xl' },
+  { title: 'Гнучка\nоплата', desc: 'Розстрочка під 0% для кожного.', bg: 'bg-surface-container-high', icon: '💳', size: 'text-xl md:text-2xl' },
+  { title: 'Онлайн\nзапис', desc: 'Зручний запис через сайт або телефон у будь-який час.', bg: 'bg-primary/10', icon: '📱', size: 'text-[1.6rem] md:text-[2rem]' },
+  { title: 'Комфортна\nатмосфера', desc: 'Розслаблена обстановка для вашого спокою та комфорту.', bg: 'bg-surface-container-low', icon: '🏥', size: 'text-[1.6rem] md:text-[2rem]' },
+];
+---
+
+<section class="section-gap bg-white">
+  <div class="section-container">
+    <Animate>
+      <h2 class="heading-lg text-center mb-16">Чому обирають нас</h2>
+    </Animate>
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-5" data-stagger>
+      {cards.map((card) => (
+        <Animate stagger>
+          <div class:list={[card.bg, 'rounded-[2rem] p-7 md:p-9 flex flex-col justify-between relative overflow-hidden h-[200px] md:h-[220px]']}>
+            <div class="relative z-10">
+              <h3 class:list={[card.size, 'font-bold text-on-surface leading-tight mb-2 whitespace-pre-line']}>{card.title}</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed max-w-[260px]">{card.desc}</p>
+            </div>
+            <div class="absolute bottom-4 right-4 text-[4rem] md:text-[5rem] opacity-80">{card.icon}</div>
+          </div>
+        </Animate>
+      ))}
+    </div>
+  </div>
+</section>

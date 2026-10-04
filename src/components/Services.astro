@@ -1,0 +1,49 @@
+---
+import Animate from './Animate.astro';
+
+const services = [
+  { title: 'Відбілювання зубів', desc: 'Професійне відбілювання для яскравої посмішки.', price: 'Від 2 999 грн' },
+  { title: 'Зубні імпланти', desc: 'Довговічна та природна заміна відсутніх зубів.', price: 'Від 19 999 грн' },
+  { title: 'Ортодонтія', desc: 'Брекети та прозорі елайнери для ідеального прикусу.', price: 'Від 34 999 грн' },
+  { title: 'Лікування каналів', desc: 'Безболісне лікування для збереження зубів.', price: 'Від 7 999 грн' },
+  { title: 'Зубні коронки', desc: 'Міцна та естетична реставрація зубів.', price: 'Від 8 999 грн' },
+  { title: 'Невідкладна допомога', desc: 'Термінова допомога при гострому зубному болю.', price: 'Від 1 499 грн' },
+];
+---
+
+<section id="services" class="relative">
+  <div class="relative z-10 -mt-20">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0,80 L1440,80 L1440,40 C1260,60 1080,20 720,40 C360,60 180,30 0,40 Z" fill="#e8f5dc"/>
+      <path d="M0,40 C180,30 360,60 720,40 C1080,20 1260,60 1440,40 L1440,0 L0,0 Z" fill="white"/>
+    </svg>
+  </div>
+  <div class="bg-[#e8f5dc]">
+    <div class="section-container pt-10 pb-8 md:pt-10 md:pb-8">
+      <Animate>
+        <h2 class="heading-lg">Наші послуги</h2>
+      </Animate>
+    </div>
+    <div class="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pl-6 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pr-6 pb-4" style="scrollbar-width: none">
+      {services.map((service, i) => (
+        <Animate delay={i * 0.1}>
+          <div class="snap-center flex-shrink-0 w-[300px] bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+            <div class="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mb-5">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <h3 class="heading-md mb-2">{service.title}</h3>
+            <p class="body-md mb-4">{service.desc}</p>
+            <p class="text-primary font-semibold">{service.price}</p>
+          </div>
+        </Animate>
+      ))}
+      <div class="flex-shrink-0 w-6"></div>
+    </div>
+  </div>
+  <div class="relative z-10 -mb-20">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,40 C1260,20 1080,60 720,40 C360,20 180,50 0,40 Z" fill="#e8f5dc"/>
+      <path d="M0,40 C180,50 360,20 720,40 C1080,60 1260,20 1440,40 L1440,80 L0,80 Z" fill="white"/>
+    </svg>
+  </div>
+</section>

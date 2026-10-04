@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import About from '../components/About.astro';
+import Advantages from '../components/Advantages.astro';
+import Services from '../components/Services.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import Doctors from '../components/Doctors.astro';
+import Timeline from '../components/Timeline.astro';
+import Equipment from '../components/Equipment.astro';
+import Reviews from '../components/Reviews.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout title="DentalPro - Сучасна стоматологічна клініка">
+  <div class="min-h-screen bg-on-surface/10 p-3 md:p-5">
+    <div class="min-h-screen bg-surface rounded-[2rem] md:rounded-[3rem]" style="clip-path: inset(0 round 2rem)">
+      <Header />
+      <Hero />
+      <TrustBar />
+      <About />
+      <Advantages />
+      <Services />
+      <BeforeAfter />
+      <Doctors />
+      <Timeline />
+      <Equipment />
+      <Reviews />
+      <FAQ />
+      <CTA />
+      <Contact />
+      <Footer />
+    </div>
+  </div>
+</Layout>

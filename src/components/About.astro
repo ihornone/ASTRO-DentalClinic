@@ -1,0 +1,46 @@
+---
+import Animate from './Animate.astro';
+---
+
+<section id="about" class="relative">
+  <div class="relative z-10 -mt-20">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0,80 L1440,80 L1440,40 C1260,60 1080,20 720,40 C360,60 180,30 0,40 Z" fill="#e8e0f5"/>
+      <path d="M0,40 C180,30 360,60 720,40 C1080,20 1260,60 1440,40 L1440,0 L0,0 Z" fill="white"/>
+    </svg>
+  </div>
+  <div class="bg-[#e8e0f5]">
+    <div class="section-container pt-10 pb-8 md:pt-10 md:pb-8">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <Animate direction="left">
+          <div>
+            <h2 class="heading-lg mb-6">Про нашу клініку</h2>
+            <p class="body-lg mb-6">Ми — сучасна стоматологічна клініка, яка поєднує новітні технології та індивідуальний підхід. Наша команда сертифікованих спеціалістів має багаторічний досвід у різних напрямках стоматології.</p>
+            <ul class="space-y-3">
+              {['Сучасне обладнання', 'Досвідчені лікарі', 'Комфортна атмосфера', 'Гнучкі умови оплати'].map((item) => (
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
+                  <span class="text-on-surface">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Animate>
+        <Animate direction="right">
+          <div class="grid grid-cols-5 grid-rows-2 gap-4 h-[350px] md:h-[400px]">
+            <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=400&h=400&fit=crop" alt="Інтер'єр клініки" class="col-span-3 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&h=400&fit=crop" alt="Обладнання" class="col-span-2 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&h=400&fit=crop" alt="Стоматологічне крісло" class="col-span-2 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=400&fit=crop" alt="Лікар за роботою" class="col-span-3 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
+          </div>
+        </Animate>
+      </div>
+    </div>
+  </div>
+  <div class="relative z-10 -mb-20">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,40 C1260,20 1080,60 720,40 C360,20 180,50 0,40 Z" fill="#e8e0f5"/>
+      <path d="M0,40 C180,50 360,20 720,40 C1080,60 1260,20 1440,40 L1440,80 L0,80 Z" fill="white"/>
+    </svg>
+  </div>
+</section>
