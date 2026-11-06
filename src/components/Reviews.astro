@@ -2,12 +2,12 @@
 import Animate from './Animate.astro';
 
 const reviews = [
-  { name: 'Анна М.', rating: 5, text: 'Чудовий досвід! Персонал надзвичайно професійний, а результат відбілювання перевершив усі очікування.' },
-  { name: 'Давид К.', rating: 5, text: 'Лікар Чень зробив неймовірну роботу з моїми елайнерами. Весь процес був комфортним.' },
-  { name: 'Марія С.', rating: 5, text: 'Найкраща стоматологічна клініка, яку я відвідувала. Обладнання найвищого рівня, лікарі дуже уважні.' },
-  { name: 'Олексій П.', rating: 5, text: 'Робив імпланти — результат неймовірний. Дякую команді за професіоналізм та турботу.' },
-  { name: 'Ірина В.', rating: 5, text: 'Дитина не боялась лікаря! Дуже дякую за чуйний підхід до маленьких пацієнтів.' },
-  { name: 'Тарас Б.', rating: 5, text: 'Швидко, якісно та безболісно. Рекомендую цю клініку всім своїм знайомим.' },
+  { name: 'Анна М.', rating: 5, img: '/review-anna.webp', text: 'Прийшла з питанням про відбілювання. Лікар пояснила, що можна зробити в моєму випадку. Сподобалося, що спочатку все обговорили.' },
+  { name: 'Давид К.', rating: 5, img: '/review-david.webp', text: 'На консультації щодо елайнерів показали план і відповіли на запитання про строки. Стало зрозуміло, до чого готуватися.' },
+  { name: 'Марія С.', rating: 5, img: '/review-maria.webp', text: 'Давно відкладала огляд, бо хвилювалася. Тут вислухали й пояснили все звичайними словами. Для мене це багато значить.' },
+  { name: 'Олексій П.', rating: 5, img: '/review-oleksii.webp', text: 'Перед імплантацією отримав план із послідовністю візитів і кошторисом. Зручно, коли можеш заздалегідь спланувати час і витрати.' },
+  { name: 'Ірина В.', rating: 5, img: '/review-iryna.webp', text: 'Мені важливо розуміти, що роблять під час прийому. Лікар коментувала свої дії та давала час перепочити, коли я просила.' },
+  { name: 'Тарас Б.', rating: 5, img: '/review-taras.webp', text: 'Після лікування пояснили, як доглядати за зубами вдома і коли прийти на контроль. Вийшов із чітким розумінням подальших кроків.' },
 ];
 ---
 
@@ -21,7 +21,8 @@ const reviews = [
   <div class="bg-[#f5eee0]">
     <div class="section-container pt-10 pb-8 md:pt-10 md:pb-8">
       <Animate>
-        <h2 class="heading-lg mb-4">Відгуки наших пацієнтів</h2>
+        <h2 class="heading-lg mb-4">Що важливо нашим пацієнтам</h2>
+        <p class="body-md">Приклади відгуків для демопроєкту. Імена, історії та портрети ілюстративні.</p>
       </Animate>
     </div>
     <div class="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pl-6 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pr-6 pb-4" style="scrollbar-width: none">
@@ -35,7 +36,7 @@ const reviews = [
             </div>
             <p class="body-md mb-6">"{review.text}"</p>
             <div class="flex items-center gap-3">
-              <img src={`https://i.pravatar.cc/48?img=${i+20}`} alt={review.name} class="w-12 h-12 rounded-full" />
+              <img src={review.img} alt={review.name} class="w-12 h-12 rounded-full object-cover" />
               <p class="font-semibold text-on-surface">{review.name}</p>
             </div>
           </div>

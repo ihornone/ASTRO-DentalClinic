@@ -14,10 +14,10 @@ import Animate from './Animate.astro';
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <Animate direction="left">
           <div>
-            <h2 class="heading-lg mb-6">Про нашу клініку</h2>
-            <p class="body-lg mb-6">Ми — сучасна стоматологічна клініка, яка поєднує новітні технології та індивідуальний підхід. Наша команда сертифікованих спеціалістів має багаторічний досвід у різних напрямках стоматології.</p>
+            <h2 class="heading-lg mb-6">Спочатку слухаємо. Потім плануємо.</h2>
+            <p class="body-lg mb-6">У DentalPro можна прийти з конкретною проблемою або просто на огляд. Обговоримо ваші побажання, пояснимо результати діагностики та запропонуємо послідовність лікування. Ви знатимете, що робимо, навіщо і скільки це коштує.</p>
             <ul class="space-y-3">
-              {['Сучасне обладнання', 'Досвідчені лікарі', 'Комфортна атмосфера', 'Гнучкі умови оплати'].map((item) => (
+              {['Пояснюємо висновки зрозумілою мовою', 'Обговорюємо можливі варіанти лікування', 'Погоджуємо етапи та вартість', 'Даємо рекомендації для домашнього догляду'].map((item) => (
                 <li class="flex items-center gap-3">
                   <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
                   <span class="text-on-surface">{item}</span>
@@ -28,10 +28,10 @@ import Animate from './Animate.astro';
         </Animate>
         <Animate direction="right">
           <div class="grid grid-cols-5 grid-rows-2 gap-4 h-[350px] md:h-[400px]">
-            <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=400&h=400&fit=crop" alt="Інтер'єр клініки" class="col-span-3 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
-            <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&h=400&fit=crop" alt="Обладнання" class="col-span-2 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
-            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&h=400&fit=crop" alt="Стоматологічне крісло" class="col-span-2 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
-            <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=400&fit=crop" alt="Лікар за роботою" class="col-span-3 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
+            <img src="/clinic-0.webp" alt="Рецепція сучасної стоматологічної клініки" class="col-span-3 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
+            <img src="/clinic-1.webp" alt="Стоматологічний кабінет із сучасним обладнанням" class="col-span-2 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
+            <img src="/clinic-2.webp" alt="Підготовлені стоматологічні інструменти" class="col-span-2 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
+            <img src="/clinic-3.webp" alt="Лікар консультує пацієнтку" class="col-span-3 row-span-1 rounded-3xl shadow-xl w-full h-full object-cover" />
           </div>
         </Animate>
       </div>

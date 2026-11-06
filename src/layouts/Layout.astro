@@ -15,7 +15,12 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <meta name="description" content="DentalPro - Сучасна стоматологічна клініка. Професійна допомога світового рівня." />
+    <meta name="description" content="DentalPro: консультація стоматолога, лікування зубів, імплантація та ортодонтія. Зрозумілий план, погоджена вартість і увага до вашого комфорту." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="Від першого огляду до плану лікування: дізнайтеся про послуги DentalPro та заплануйте консультацію стоматолога." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="uk_UA" />
+    <meta name="twitter:card" content="summary" />
     <title>{title}</title>
   </head>
   <body>

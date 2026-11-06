@@ -2,19 +2,19 @@
 import Animate from './Animate.astro';
 
 const steps = [
-  { num: '01', title: 'Консультація' },
-  { num: '02', title: 'Діагностика' },
-  { num: '03', title: 'План лікування' },
-  { num: '04', title: 'Процедура' },
-  { num: '05', title: 'Відновлення' },
-  { num: '06', title: 'Готово!' },
+  { num: '01', title: 'Знайомство та запит' },
+  { num: '02', title: 'Огляд і діагностика' },
+  { num: '03', title: 'План і кошторис' },
+  { num: '04', title: 'Лікування поетапно' },
+  { num: '05', title: 'Рекомендації з догляду' },
+  { num: '06', title: 'Контрольні огляди' },
 ];
 ---
 
 <section class="section-gap bg-white overflow-hidden">
   <div class="section-container">
     <Animate>
-      <h2 class="heading-lg text-center mb-16">Як проходить лікування</h2>
+      <h2 class="heading-lg text-center mb-16">Від першого візиту до щоденного догляду</h2>
     </Animate>
     <div class="flex items-start gap-2 md:gap-4 overflow-x-auto pb-4 px-6 md:justify-center" style="scrollbar-width: none" data-stagger>
       {steps.map((item, i) => (

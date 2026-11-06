@@ -2,19 +2,19 @@
 import Animate from './Animate.astro';
 
 const cards = [
-  { title: 'Сучасне\nобладнання', desc: 'Технології останнього покоління для безболісного та точного лікування.', bg: 'bg-primary-light', icon: '🦷', size: 'text-[1.6rem] md:text-[2rem]' },
-  { title: 'Досвідчені\nлікарі', desc: 'Сертифіковані спеціалісти з багаторічним досвідом роботи.', bg: 'bg-secondary-light', icon: '👨‍⚕️', size: 'text-[1.6rem] md:text-[2rem]' },
-  { title: 'Доступні\nціни', desc: 'Якісне лікування за вашим бюджетом.', bg: 'bg-surface-container', icon: '💰', size: 'text-xl md:text-2xl' },
-  { title: 'Гнучка\nоплата', desc: 'Розстрочка під 0% для кожного.', bg: 'bg-surface-container-high', icon: '💳', size: 'text-xl md:text-2xl' },
-  { title: 'Онлайн\nзапис', desc: 'Зручний запис через сайт або телефон у будь-який час.', bg: 'bg-primary/10', icon: '📱', size: 'text-[1.6rem] md:text-[2rem]' },
-  { title: 'Комфортна\nатмосфера', desc: 'Розслаблена обстановка для вашого спокою та комфорту.', bg: 'bg-surface-container-low', icon: '🏥', size: 'text-[1.6rem] md:text-[2rem]' },
+  { title: 'Точна\nдіагностика', desc: 'Цифрові знімки та сканування допомагають спланувати лікування.', bg: 'bg-primary-light', img: '/advantage-dental-tool.webp', size: 'text-[1.6rem] md:text-[2rem]' },
+  { title: 'Уважні\nлікарі', desc: 'Вислухаємо ваші побажання та пояснимо кожне призначення.', bg: 'bg-secondary-light', img: '/advantage-dentist.webp', size: 'text-[1.6rem] md:text-[2rem]' },
+  { title: 'Зрозуміла\nвартість', desc: 'Ви бачите кошторис і погоджуєте його до початку лікування.', bg: 'bg-surface-container', img: '/advantage-affordable-care.webp', size: 'text-xl md:text-2xl' },
+  { title: 'Оплата\nпоетапно', desc: 'Обговоримо оплату відповідно до етапів вашого плану.', bg: 'bg-surface-container-high', img: '/advantage-payment-card.webp', size: 'text-xl md:text-2xl' },
+  { title: 'Простий\nзапис', desc: 'Залиште номер — узгодимо зручний час консультації.', bg: 'bg-primary/10', img: '/advantage-appointment-phone.webp', size: 'text-[1.6rem] md:text-[2rem]' },
+  { title: 'Ваш\nкомфорт', desc: 'Розкажіть, якщо хвилюєтеся. Домовимося про комфортний темп.', bg: 'bg-surface-container-low', img: '/advantage-clinic-room.webp', size: 'text-[1.6rem] md:text-[2rem]' },
 ];
 ---
 
 <section class="section-gap bg-white">
   <div class="section-container">
     <Animate>
-      <h2 class="heading-lg text-center mb-16">Чому обирають нас</h2>
+      <h2 class="heading-lg text-center mb-16">Щоб вам було спокійніше</h2>
     </Animate>
     <div class="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-5" data-stagger>
       {cards.map((card) => (
@@ -24,7 +24,7 @@ const cards = [
               <h3 class:list={[card.size, 'font-bold text-on-surface leading-tight mb-2 whitespace-pre-line']}>{card.title}</h3>
               <p class="text-on-surface-variant text-sm leading-relaxed max-w-[260px]">{card.desc}</p>
             </div>
-            <div class="absolute bottom-4 right-4 text-[4rem] md:text-[5rem] opacity-80">{card.icon}</div>
+            <img src={card.img} alt="" aria-hidden="true" class="absolute bottom-3 right-3 w-24 h-24 md:w-32 md:h-32 object-contain" />
           </div>
         </Animate>
       ))}

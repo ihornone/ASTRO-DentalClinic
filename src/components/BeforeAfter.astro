@@ -2,26 +2,27 @@
 import Animate from './Animate.astro';
 
 const cases = [
-  { before: '/1-do.jpg', after: '/1-pislya.jpeg', title: 'Відбілювання зубів' },
-  { before: '/2-do.jpeg', after: '/2-pislya.jpeg', title: 'Встановлення коронки' },
-  { before: '/3-do.jpeg', after: '/3-pislya.jpeg', title: 'Ортодонтія' },
+  { before: '/case-whitening-before.webp', after: '/case-whitening-after.webp', title: 'Відбілювання зубів' },
+  { before: '/case-restoration-before.webp', after: '/case-restoration-after.webp', title: 'Реставрація зуба' },
+  { before: '/case-orthodontics-before.webp', after: '/case-orthodontics-after.webp', title: 'Ортодонтія' },
 ];
 ---
 
 <section class="section-gap bg-white">
   <div class="section-container">
     <Animate>
-      <h2 class="heading-lg text-center mb-12">Результати наших робіт</h2>
+      <h2 class="heading-lg text-center mb-12">Як може змінитися усмішка</h2>
     </Animate>
+    <p class="text-center text-sm text-on-surface-variant mb-6">Посуньте повзунок, щоб порівняти «до» і «після». Це AI-візуалізації для демосайту; результат лікування завжди індивідуальний.</p>
     <div class="max-w-4xl mx-auto">
       <div class="anim-scale-in" data-animate>
         <div
           id="ba-slider"
           class="relative w-full aspect-[16/10] rounded-3xl overflow-hidden cursor-ew-resize select-none shadow-xl"
         >
-          <img id="ba-after" src={cases[0].after} alt="Після" class="absolute inset-0 w-full h-full object-cover" />
+          <img id="ba-after" src={cases[0].after} alt="AI-візуалізація усмішки після відбілювання" class="absolute inset-0 w-full h-full object-cover" />
           <div id="ba-before-wrap" class="absolute inset-0 overflow-hidden" style="width: 50%">
-            <img id="ba-before" src={cases[0].before} alt="До" class="absolute inset-0 w-full h-full object-cover" style="width: 1000px; max-width: none" />
+            <img id="ba-before" src={cases[0].before} alt="AI-візуалізація усмішки до відбілювання" class="absolute inset-0 w-full h-full object-cover" style="width: 100%; max-width: none" />
           </div>
           <div id="ba-handle" class="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_8px_rgba(0,0,0,0.3)] cursor-ew-resize z-10" style="left: 50%; transform: translateX(-50%)">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center">
@@ -58,9 +59,9 @@ const cases = [
 
 <script>
   const cases = [
-    { before: '/1-do.jpg', after: '/1-pislya.jpeg', title: 'Відбілювання зубів' },
-    { before: '/2-do.jpeg', after: '/2-pislya.jpeg', title: 'Встановлення коронки' },
-    { before: '/3-do.jpeg', after: '/3-pislya.jpeg', title: 'Ортодонтія' },
+    { before: '/case-whitening-before.webp', after: '/case-whitening-after.webp', title: 'Відбілювання зубів' },
+    { before: '/case-restoration-before.webp', after: '/case-restoration-after.webp', title: 'Реставрація зуба' },
+    { before: '/case-orthodontics-before.webp', after: '/case-orthodontics-after.webp', title: 'Ортодонтія' },
   ];
 
   let idx = 0;
@@ -78,6 +79,8 @@ const cases = [
     beforeWrap.style.width = pos + '%';
     handle.style.left = pos + '%';
     title.textContent = cases[idx].title;
+    beforeImg.alt = `${cases[idx].title}: демо до лікування`;
+    afterImg.alt = `${cases[idx].title}: демо після лікування`;
     dots.forEach((d, i) => {
       d.className = i === idx
         ? 'h-3 rounded-full transition-all bg-primary w-8'
@@ -105,6 +108,13 @@ const cases = [
     afterImg.src = cases[idx].after;
     updateUI();
   }
+
+  function syncBeforeWidth() {
+    beforeImg.style.width = `${slider.clientWidth}px`;
+  }
+
+  syncBeforeWidth();
+  window.addEventListener('resize', syncBeforeWidth);
 
   document.getElementById('ba-prev')!.addEventListener('click', () => goTo(idx === 0 ? cases.length - 1 : idx - 1));
   document.getElementById('ba-next')!.addEventListener('click', () => goTo(idx === cases.length - 1 ? 0 : idx + 1));
